@@ -1,0 +1,30 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Tarefas da agenda{% endblock %}
+{% block content %}
+  <div class="container mt-4">
+    <h2 class="text-center">Tarefas da Agenda</h2>
+    <br>
+    <h3 class="text-center"> Listagens</h3>    
+    <div class="row">
+      {% for agenda in tarefas %}
+        <div class="col-md-6 mb-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body">
+              <h5 class="card-title">{{ tarefa.tarefa }}</h5> 
+              <p class="card-text">
+                <ul>
+                  <li><strong>Tarefa:</strong> {{ agenda.tarefa}}</li> 
+                  <li><strong>Data:</strong> {{ agenda.data}}</li> 
+                  <li><strong>Tipo:</strong> {{ agenda.tipo}}</li> 
+                  {% if agenda.data < hoje %} 
+                  <li><strong>ATENÇÃO: Tarefa atrasada!</strong></li>
+                  {% endif %}
+              </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
