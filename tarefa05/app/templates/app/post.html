@@ -1,0 +1,10 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+<h2 class="titulo"><center>{{ post.titulo }}</center></h2> 
+<p><em>{{ post.data_publicacao|date:"d/m/Y"}}</em></p>
+<center><img src="{{ post.imagem.url }}" alt="{{ post.titulo }}" width="400"></center>
+<p>{{ post.conteudo }}</p>
+<br>
+<center><footer class="footer">Rafael Santos</footer></center>
+{% endblock %}

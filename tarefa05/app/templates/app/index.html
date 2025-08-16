@@ -1,0 +1,29 @@
+{% extends "app/base.html" %}
+{% load static %}
+{% block title %}Blog{% endblock title %}
+{% block content %}
+<h1><center>Meu Blog</center></h1>
+<ul> 
+    {% for post in posts %}
+        <li>
+            <a href="{% url 'post' post.id %}">
+                {{ post.titulo }}
+            </a> - {{ post.data_publicacao|date:"d/m/Y" }}
+        </li>
+    </br> 
+    {% empty %}
+        <p>Nenhuma postagem cadastrada.</p>
+    {% endfor %}
+</ul>
+<center><footer class="footer">Rafael Santos</footer></center>
+<style>
+    ul {
+        list-style-type: none; 
+    }
+    .footer {
+        margin-top: 450px; 
+    }
+
+</style>
+
+{% endblock content %}
